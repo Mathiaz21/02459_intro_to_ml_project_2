@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 
-X = pd.read_csv("../breast_cancer_wisconsin_features.csv") 
-y = np.ravel(pd.read_csv("../breast_cancer_wisconsin_targets.csv"))
+X = pd.read_csv("breast_cancer_wisconsin_features.csv") 
+y = np.ravel(pd.read_csv("breast_cancer_wisconsin_targets.csv"))
 
 nb_benign = np.sum(y == "B")
 nb_malignant = np.sum(y == "M")
