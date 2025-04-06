@@ -4,5 +4,5 @@ features_df = breast_cancer_wisconsin_diagnostic.data.features
 targets_df = breast_cancer_wisconsin_diagnostic.data.targets
 
 
-features_df.to_csv('breast_cancer_wisconsin_features.csv', index=False)
-targets_df.to_csv('breast_cancer_wisconsin_targets.csv', index=False)
+features_df.to_csv('./data_local/breast_cancer_wisconsin_features.csv', index=False)
+targets_df.to_csv('./data_local/breast_cancer_wisconsin_targets.csv', index=False)

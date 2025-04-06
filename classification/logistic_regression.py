@@ -1,11 +1,13 @@
 import pandas as pd
 import numpy as np
 import classification.models.logistic_regression as lr
-from utils.basic_operations import standardize_data
 import matplotlib.pyplot as plt
+import utils.serve_data as sd
 
-X = pd.read_csv("breast_cancer_wisconsin_features.csv")
-y = np.ravel(pd.read_csv("breast_cancer_wisconsin_targets.csv"))
+from utils.basic_operations import standardize_data
+
+X = sd.get_features_dataset()
+y = sd.get_targets()
 X = standardize_data(X)
 
 

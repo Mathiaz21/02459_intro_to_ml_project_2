@@ -1,7 +1,7 @@
-import pandas as pd
 import numpy as np
 import classification.models.logistic_regression as lr
 import matplotlib.pyplot as plt
+import utils.serve_data as sd
 
 from sklearn import model_selection
 from utils.basic_operations import standardize_data
@@ -13,8 +13,8 @@ LAMBDA_STOP: float = 10.
 LAMBDA_STEP: float = .2
 
 
-X = pd.read_csv("breast_cancer_wisconsin_features.csv").to_numpy()
-y = np.ravel(pd.read_csv("breast_cancer_wisconsin_targets.csv"))
+X = sd.get_features_dataset()
+y = sd.get_targets()
 X = standardize_data(X)
 N, M = X.shape
 

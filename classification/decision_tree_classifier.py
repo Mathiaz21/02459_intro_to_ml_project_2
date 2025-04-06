@@ -1,9 +1,10 @@
 import pandas as pd
+import utils.serve_data as sd
 
 from sklearn import tree
 
-X = pd.read_csv("../breast_cancer_wisconsin_features.csv") 
-y = pd.read_csv("../breast_cancer_wisconsin_targets.csv")
+X = sd.get_features_dataset()
+y = sd.get_targets()
 
 
 criterion = "gini"
