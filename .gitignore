@@ -1,4 +1,3 @@
-breast_cancer_wisconsin_features.csv
-breast_cancer_wisconsin_targets.csv
+local_data/
 
 */__pycache__

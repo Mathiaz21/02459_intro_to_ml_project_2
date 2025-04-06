@@ -1,4 +1,3 @@
-import pandas as pd
 import numpy as np
 import classification.models.logistic_regression as lr
 import matplotlib.pyplot as plt

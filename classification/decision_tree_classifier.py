@@ -1,4 +1,3 @@
-import pandas as pd
 import utils.serve_data as sd
 
 from sklearn import tree

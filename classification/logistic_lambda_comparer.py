@@ -42,8 +42,8 @@ for id, lam in enumerate(lambdas):
     y_test = y[test_index]
     # Compute squared error with all features selected (no feature selection)
     m = lr.generate_logistic_regression(regularization_parameter=lam).fit(X_train, y_train)
-    inner_training_errors[k] = np.sum(y_train != m.predict(X_train)) / y_train.shape[0]
-    inner_test_errors[k] = np.sum(y_test != m.predict(X_test)) / y_test.shape[0]
+    inner_training_errors[k] = np.sum(y_train != m.predict(X_train)) / y_train.shape[0] * 100
+    inner_test_errors[k] = np.sum(y_test != m.predict(X_test)) / y_test.shape[0] * 100
     k += 1
 
   outer_training_errors[id] = np.mean(inner_training_errors)
