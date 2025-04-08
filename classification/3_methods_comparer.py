@@ -1,6 +1,6 @@
 import numpy as np
 import utils.serve_data as sd
-import models.logistic_regression as lr
+import classification.models.logistic_regression as lr
 
 from sklearn import model_selection
 from utils.basic_operations import standardize_data
@@ -43,7 +43,7 @@ def compute_regression_errors(cursor: int, error_df: np.ndarray, X_train, y_trai
 cursor_outer: int = 0
 baseline_outer_error = np.empty((K_outer, 1))
 regression_outer_error = np.empty((K_outer, 1))
-regression_lambdas= np.empty((K_outer, 1))
+regression_lambdas = np.empty((K_outer, 1))
 for outer_train_index, outer_test_index in outer_fold.split(X):
 
   X_inner = X[outer_train_index]
@@ -64,9 +64,12 @@ for outer_train_index, outer_test_index in outer_fold.split(X):
     cursor_inner += 1
   
   baseline_outer_error[cursor_outer] = np.min(baseline_inner_error)
-  regression_outer_error[cursor_outer] = np.min( np.mean()) # get the mean error for each inner fold, get the best lambda, save that
-
+  regression_generalization_errors = np.mean(regression_inner_error, axis=1)
+  regression_outer_error[cursor_outer] = np.min(regression_generalization_errors) # get the mean error for each inner fold, get the best lambda, save that
+  regression_lambdas[cursor_outer] = LAMBDAS[np.argmin(regression_generalization_errors)]
   cursor_outer += 1
 
-
+print(f"Baseline errors: {baseline_outer_error}")
+print(f"Regression errors; {regression_outer_error}")
+print(f"Best lambdas: {regression_lambdas}")
 
