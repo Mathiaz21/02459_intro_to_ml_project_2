@@ -115,4 +115,7 @@ results_df = pd.DataFrame({
   "baseline_errors": baseline_outer_errors,
 })
 
+for column in results_df.columns: 
+  results_df[column] = results_df[column].round(3)
+
 save_results(results_df=results_df, output_name=OUTPUT_NAME)
